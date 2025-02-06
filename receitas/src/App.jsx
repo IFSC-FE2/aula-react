@@ -1,9 +1,12 @@
 import Cabecalho from "./components/Cabecalho/Cabecalho";
 import Receita from "./components/Receita"
 import "./App.css";
+import { useState } from "react";
+import Form from "./components/Form";
 
 function App() {
-  const receitas = [
+  const [receitaSelecionada, setReceitaSelecionada] = useState(null);
+  const [receitas, setReceitas] = useState([
     {
       id: 1,
       nome: "Salmão Assado",
@@ -40,20 +43,44 @@ function App() {
         "Cubra com alface, tomates e queijo.",
       ],
     },
-  ];
+  ]);
+
+  // const atualizaReceita = ()
+
+  const aoEditar = (id) => {
+    setReceitaSelecionada(receitas.find(receita => receita.id === id));
+  }
+
+  const apagarReceita = (id) => {
+    setReceitas(receitas.filter((receita) => receita.id !== id));
+  }
+
+  const atualizarReceita = (receita) => {
+    setReceitas(receitas.map(r => (r.id === receita.id ? receita : r)));
+    setReceitaSelecionada(receita);
+  }
 
   return (
     <div>
       <Cabecalho titulo="Receitas Deliciosas" />
       <section className="receitas">
         {receitas.map((receita) => {
-            return <Receita 
-                key={receita.id}
-                nome={receita.nome}
-                ingredientes={receita.ingredientes} 
-                instrucoes={receita.instrucoes}
-            />
+          return <Receita
+            key={receita.id}
+            id={receita.id}
+            nome={receita.nome}
+            ingredientes={receita.ingredientes}
+            instrucoes={receita.instrucoes}
+            aoApagar={apagarReceita}
+            aoEditar={aoEditar}
+          />
         })}
+      </section>
+      <section>
+        <Form 
+          receita={receitaSelecionada} 
+          aoAtualizar={atualizarReceita} 
+        />
       </section>
     </div>
   );
