@@ -1,8 +1,9 @@
-import { createContext, useState } from "react"
+import { createContext, useState } from "react";
 
 const ReceitaContext = createContext();
 
 const ReceitaProvider = ({ children }) => {
+  const [receitaSelecionada, setReceitaSelecionada] = useState(null);
   const [receitas, setReceitas] = useState([
     {
       id: 1,
@@ -43,7 +44,7 @@ const ReceitaProvider = ({ children }) => {
   ]);
 
   return (
-    <ReceitaContext.Provider value={{ receitas, setReceitas }}>
+    <ReceitaContext.Provider value={{ receitas, setReceitas, receitaSelecionada, setReceitaSelecionada }}>
       {children}
     </ReceitaContext.Provider>
   );

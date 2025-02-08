@@ -2,9 +2,7 @@ import { useContext, useState } from "react";
 import { ReceitaContext } from "../contexto/ReceitaContext";
 
 const useReceita = () => {
-  const { receitas, setReceitas } = useContext(ReceitaContext);
-
-  const [receitaSelecionada, setReceitaSelecionada] = useState(null);
+  const { receitas, setReceitas, receitaSelecionada, setReceitaSelecionada } = useContext(ReceitaContext);
 
   const aoEditar = (id) => {
     setReceitaSelecionada(receitas.find((receita) => receita.id === id));
