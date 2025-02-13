@@ -23,9 +23,6 @@ const Principal = () => {
           );
         })}
       </section>
-      <section>
-        <Form receita={receitaSelecionada} aoAtualizar={atualizarReceita} />
-      </section>
     </>
   );
 };

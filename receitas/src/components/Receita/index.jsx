@@ -2,6 +2,7 @@ import "./style.css";
 import Avaliacao from "../Avaliacao/index.jsx";
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 import useReceita from "../../hooks/useReceita.jsx";
+import { Link } from "react-router";
 
 const Receita = ({ id }) => {
   const { receitas, apagarReceita, aoEditar } = useReceita();
@@ -27,7 +28,9 @@ const Receita = ({ id }) => {
       <div className="rodape">
         <Avaliacao />
         <div>
-          <FaRegEdit onClick={() => aoEditar(id)} />
+          <Link to={`/${id}`}>
+            <FaRegEdit onClick={() => aoEditar(id)} />
+          </Link>
           <FaRegTrashAlt onClick={() => apagarReceita(id)} />
         </div>
       </div>

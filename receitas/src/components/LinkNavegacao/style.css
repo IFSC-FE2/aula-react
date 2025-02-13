@@ -1,0 +1,11 @@
+.link {
+    text-decoration: none;
+    color: crimson;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.linkSelecionado {
+    background-color: crimson;
+    color: white;
+}
