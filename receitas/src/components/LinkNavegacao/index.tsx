@@ -1,7 +1,12 @@
 import { Link, useLocation } from "react-router";
 import "./style.css"
 
-const LinkNavegacao = ({ children, to }) => {
+interface LinkNavegacaoProps {
+    children: React.ReactNode;
+    to: string;
+}
+
+const LinkNavegacao = ({ children, to }: LinkNavegacaoProps) => {
 
     const localizacao = useLocation();
 

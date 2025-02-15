@@ -1,20 +1,21 @@
 import { useContext, useState } from "react";
 import { ReceitaContext } from "../contexto/ReceitaContext";
+import IReceita from "../interface/IReceita";
 
 const useReceita = () => {
   const { receitas, setReceitas, receitaSelecionada, setReceitaSelecionada } = useContext(ReceitaContext);
 
-  const aoEditar = (id) => {
-    setReceitaSelecionada(receitas.find((receita) => receita.id === id));
+  const aoEditar = (id: number) => {
+    setReceitaSelecionada(receitas.find((receita: IReceita) => receita.id === id));
     console.log(receitaSelecionada);
   };
 
-  const apagarReceita = (id) => {
-    setReceitas(receitas.filter((receita) => receita.id !== id));
+  const apagarReceita = (id: number) => {
+    setReceitas(receitas.filter((receita: IReceita) => receita.id !== id));
   };
 
-  const atualizarReceita = (receita) => {
-    setReceitas(receitas.map((r) => (r.id === receita.id ? receita : r)));
+  const atualizarReceita = (receita: IReceita) => {
+    setReceitas(receitas.map((r: IReceita) => (r.id === receita.id ? receita : r)));
     setReceitaSelecionada(receita);
   };
 

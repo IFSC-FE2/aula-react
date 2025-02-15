@@ -1,6 +1,10 @@
 import MenuNavegacao from "../MenuNavegacao";
 
-export default function Cabecalho(props) {
+interface CabecalhoProps {
+    titulo: string
+}
+
+export default function Cabecalho(props: CabecalhoProps) {
 
     return (
         <header style={{ textAlign: "center"}}>

@@ -10,18 +10,18 @@ const Receita = ({ id }) => {
 
   return (
     <section className="receita-card">
-      <h2>{receita.nome}</h2>
+      <h2>{receita.name}</h2>
       <h3>Ingredientes</h3>
       <ul>
-        {receita.ingredientes.map((ingrediente, i) => (
+        {receita.ingredients.map((ingrediente, i) => (
           <li key={i}>
-            {ingrediente.quantidade} {ingrediente.medida} de {ingrediente.nome}
+            {ingrediente}
           </li>
         ))}
       </ul>
       <h3>Modo de preparo</h3>
       <ol>
-        {receita.instrucoes.map((instrucao, i) => (
+        {receita.instructions.map((instrucao, i) => (
           <li key={i}>{instrucao}</li>
         ))}
       </ol>

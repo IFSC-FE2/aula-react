@@ -1,6 +1,11 @@
 import { FaStar } from 'react-icons/fa'
 
-const Estrela = ({ selecionado = false, aoSelecionar }) => {
+interface EstrelaProps {
+    selecionado: boolean;
+    aoSelecionar: () => void
+}
+
+const Estrela = ({ selecionado = false, aoSelecionar }: EstrelaProps) => {
     
     return (
         <FaStar 
